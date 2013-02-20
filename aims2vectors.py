@@ -45,6 +45,6 @@ beta = np.arccos(lattice_matrix[2,:].dot(lattice_matrix[0,:]) \
 (alpha, beta, gamma) = np.array([alpha, beta, gamma]).dot(180/np.pi)
 
 print '    a    b      c    alpha  beta   gamma'
-print '{0:6.3} {1:6.3f} {2:6.3f} {3:6.2f} {4:6.2f} {5:6.2f}'.format(\
+print '{0:6.3f} {1:6.3f} {2:6.3f} {3:6.2f} {4:6.2f} {5:6.2f}'.format(\
           a,    b,    c,    alpha, beta, gamma)
 
