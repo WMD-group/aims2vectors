@@ -20,20 +20,21 @@ lattice_matrix = lattice_matrix[0:3,:]
 # Get lattice vector magnitudes (a, b, c) according to Pythagoras' theorem
 (a, b, c) = np.sqrt(np.sum(np.square(lattice_matrix),1))
 
-# 
-alpha = np.arccos(lattice_matrix[0,:].dot(lattice_matrix[1,:]) \
+# Calculate angles between vectors using relation
+# A.B = |A||B|cos(theta)
+gamma = np.arccos(lattice_matrix[0,:].dot(lattice_matrix[1,:]) \
                     / (np.linalg.norm(lattice_matrix[0,:]) * \
                            np.linalg.norm(lattice_matrix[1,:]) \
                       )
                 )
 
-beta = np.arccos(lattice_matrix[1,:].dot(lattice_matrix[2,:]) \
+alpha = np.arccos(lattice_matrix[1,:].dot(lattice_matrix[2,:]) \
                     / (np.linalg.norm(lattice_matrix[1,:]) * \
                            np.linalg.norm(lattice_matrix[2,:]) \
                       )
                 )
 
-gamma = np.arccos(lattice_matrix[2,:].dot(lattice_matrix[0,:]) \
+beta = np.arccos(lattice_matrix[2,:].dot(lattice_matrix[0,:]) \
                     / (np.linalg.norm(lattice_matrix[2,:]) * \
                            np.linalg.norm(lattice_matrix[0,:]) \
                       )
