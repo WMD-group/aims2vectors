@@ -15,4 +15,5 @@ To Do
 
 Disclaimer
 ----------
-This script is not affiliated with *FHI-aims*. Feel free to use it and build on it, but do so at your own risk.
+This program is not affiliated with *FHI-aims*.
+The program is made available under the GNU General Public License; you are free to modify and use the code, but do so at your own risk.
