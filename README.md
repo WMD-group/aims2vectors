@@ -7,12 +7,6 @@ Requirements
 ------------
 Python with Numpy, Unix-like file system.
 
-
-To Do
------
-* Allow user to specify precision with optional argument
-    * e.g. `aims2vectors ~/geometry.in  --length 4 --angle 3`
-
 Disclaimer
 ----------
 This program is not affiliated with *FHI-aims*.

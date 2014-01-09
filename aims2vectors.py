@@ -30,6 +30,12 @@ parser.add_option("-f", "--file",
 parser.add_option("-l", "--latex",
                   action="store_true", dest="latex_format", default=False,
                   help="Print in convenient format for insertion in latex tabular environments")
+parser.add_option("-p", "--precision", "--precision_length",
+                  action="store", type="int", dest="precision_length", default=3,
+                  help="Number of decimal places to return (length in Angstroms)")
+parser.add_option("-a", "--precision_angle",
+                  action="store", type="int", dest="precision_angle", default=2,
+                  help="Number of decimal places to return (angle in degrees)")
 # Add further options here
 (options, args) = parser.parse_args()
 
@@ -66,10 +72,11 @@ beta = np.arccos(lattice_matrix[2,:].dot(lattice_matrix[0,:]) \
 (alpha, beta, gamma) = np.array([alpha, beta, gamma]).dot(180/np.pi)
 
 if options.latex_format:
-    print '{0:6.3f}&{1:6.3f}&{2:6.3f}&{3:6.2f}&{4:6.2f}&{5:6.2f}'.format(\
-                                a,    b,    c,    alpha, beta, gamma)
+    print '{0:6.{6}f}&{1:6.{6}f}&{2:6.{6}f}&{3:6.{7}f}&{4:6.{7}f}&{5:6.{7}f}'.format(
+            a,    b,    c,    alpha, beta, gamma, options.precision_length, options.precision_angle)
 else:
-    print '    a    b      c    alpha  beta   gamma'
-    print '{0:6.3f} {1:6.3f} {2:6.3f} {3:6.2f} {4:6.2f} {5:6.2f}'.format(\
-                                a,    b,    c,    alpha, beta, gamma)
+    print '  a  {0}b  {0}c {0}alpha{1}beta{1} gamma'.format(
+             options.precision_length*" ", options.precision_angle*" ")
+    print '{0:.{6}f} {1:.{6}f} {2:.{6}f} {3:.{7}f} {4:.{7}f} {5:.{7}f}'.format(\
+            a,    b,    c,    alpha, beta, gamma, options.precision_length, options.precision_angle)
 
